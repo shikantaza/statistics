@@ -48,3 +48,11 @@
 
 (defun compare-training-set (p d1 d2)
   (< (distance p (first d1)) (distance p (first d2))))
+
+(defun median (lst)
+  (let* ((sorted-list (sort (copy-list lst) #'<))
+	 (l (length sorted-list))
+	 (mid (floor (/ l 2))))
+    (if (oddp l)
+      (nth mid sorted-list)
+      (/ (+ (nth (1- mid) sorted-list) (nth mid sorted-list)) 2.0))))
